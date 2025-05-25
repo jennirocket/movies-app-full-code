@@ -4,7 +4,11 @@
     <p-tabPanel header="Overview">
       <div class="grid">
         <div class="col-12 md:col-3 lg:col-3">
-          <img class="poster" [src]="imagesSizes.medium + tvShow.poster_path" [alt]="tvShow.name" />
+          <img
+            class="poster"
+            [src]="imagesSizes.medium + tvShow.poster_path"
+            [alt]="tvShow.title"
+          />
         </div>
 
         <div class="col-12 md:col-9 lg:col-9">
@@ -13,7 +17,7 @@
           <div class="stat">
             <div class="label">Release Date:</div>
             <div class="value">
-              {{ tvShow.release_date | date: 'dd.MM.yyyy' }}
+              {{ tvShow.release_date | date : 'dd.MM.yyyy' }}
             </div>
           </div>
           <div class="stat">
