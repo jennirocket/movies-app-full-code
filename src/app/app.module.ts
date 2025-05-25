@@ -7,7 +7,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
@@ -23,34 +23,27 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { TvShowComponent } from './pages/tvshow/tvshow.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    MoviesComponent,
-    SliderComponent,
-    ItemsBannerComponent,
-    ItemComponent,
-    MovieComponent,
-    VideoEmbedComponent,
-    GenresComponent,
-    TvShowsComponent,
-    TvShowComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    PaginatorModule,
-    TabViewModule,
-    ImageModule,
-    CarouselModule,
-    InputTextModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        MoviesComponent,
+        SliderComponent,
+        ItemsBannerComponent,
+        ItemComponent,
+        MovieComponent,
+        VideoEmbedComponent,
+        GenresComponent,
+        TvShowsComponent,
+        TvShowComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        PaginatorModule,
+        TabViewModule,
+        ImageModule,
+        CarouselModule,
+        InputTextModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
